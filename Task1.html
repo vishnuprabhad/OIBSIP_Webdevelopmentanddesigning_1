@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Creative Book Store</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Background with image */
+body {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') no-repeat center/cover;
+    color: white;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px;
+    font-size: 28px;
+}
+
+/* Search Bar */
+.search-box {
+    text-align: center;
+    margin: 20px;
+}
+
+.search-box input {
+    padding: 10px;
+    width: 250px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 40px;
+}
+
+.hero button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #ff7e5f;
+    color: white;
+    cursor: pointer;
+}
+
+/* Book Cards */
+.books {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 40px;
+}
+
+.card {
+    width: 240px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: 260px;
+}
+
+.card h3 {
+    margin: 10px 0;
+}
+
+.buttons {
+    padding: 15px;
+}
+
+.buttons button {
+    padding: 8px 12px;
+    margin: 5px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.like {
+    background: pink;
+}
+
+.cart {
+    background: #ff7e5f;
+    color: white;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    📚 Dream Book Store
+</header>
+
+<div class="search-box">
+    <input type="text" id="search" placeholder="Search books...">
+</div>
+
+<section class="hero">
+    <h1>Find Your Perfect Book ✨</h1>
+    <button onclick="alert('Start Reading!')">Explore</button>
+</section>
+
+<section class="books" id="bookList">
+
+    <div class="card" data-name="fiction">
+        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f">
+        <h3>Fiction</h3>
+        <div class="buttons">
+            <button class="like" onclick="like()">❤️</button>
+            <button class="cart" onclick="cart()">Buy</button>
+        </div>
+    </div>
+
+    <div class="card" data-name="science">
+        <img src="https://images.unsplash.com/photo-1528207776546-365bb710ee93">
+        <h3>Science</h3>
+        <div class="buttons">
+            <button class="like" onclick="like()">❤️</button>
+            <button class="cart" onclick="cart()">Buy</button>
+        </div>
+    </div>
+
+    <div class="card" data-name="history">
+        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba">
+        <h3>History</h3>
+        <div class="buttons">
+            <button class="like" onclick="like()">❤️</button>
+            <button class="cart" onclick="cart()">Buy</button>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Dream Book Store 🌟
+</footer>
+
+<script>
+// Search Function
+document.getElementById("search").addEventListener("keyup", function() {
+    let value = this.value.toLowerCase();
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        let name = card.getAttribute("data-name");
+        card.style.display = name.includes(value) ? "block" : "none";
+    });
+});
+
+// Like
+function like() {
+    alert("❤️ Added to Favorites!");
+}
+
+// Cart
+function cart() {
+    alert("🛒 Added to Cart!");
+}
+</script>
+
+</body>
+</html>
